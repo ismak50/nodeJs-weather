@@ -5,6 +5,8 @@ const hbs = require('hbs');
 const forecast = require('./utils/forecast');
 const geocode = require('./utils/geocode');
 
+const port = process.env.PORT || 3001
+
 app.set('views',path.join(__dirname, '../public/templates/views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname,'../public/templates/partials'));
@@ -52,6 +54,6 @@ app.get('/weather', (req, res) => {
 });
 
 
-app.listen(3001, () => {
-    console.log('Server is up on port 3001.');
+app.listen(port, () => {
+    console.log('Server is up on port ' + port);
 });
